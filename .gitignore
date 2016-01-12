@@ -3,7 +3,6 @@
 /output/
 /.psci*
 /src/.webpack.js
-output.js
 
 # Logs
 logs
