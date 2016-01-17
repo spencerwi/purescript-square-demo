@@ -6,7 +6,6 @@ import DOM
 import Signal
 import Signal.DOM
 import Signal.Time (every)
-import Data.Tuple
 import Data.Foldable (foldl)
 import Text.Smolder.Markup
 import qualified Text.Smolder.HTML as H
@@ -61,6 +60,7 @@ foreign import asBody :: forall eff. String -> Eff (dom:: DOM | eff) Unit
 playerOne :: Signal MouseInput -> Signal PlayerState
 playerOne mouseInputSignal = foldp updatePlayer initialPlayerOne (sampleOn frameRate mouseInputSignal)
 
+main :: forall eff. Eff (dom :: DOM | eff) Unit
 main = do
     -- mousePos and mouseButton both wrap their signals in a nasty Eff monad
     -- so the value I care about is two layers deep. So we get them here in do-notation-land.
